@@ -12,11 +12,6 @@ namespace snake
         public int y;
         public char sym;
 
-        public Point()
-        {
-            Console.WriteLine( "New Point Created" );
-        }
-
         public Point(int _x, int _y, char _sym)
         {
             x = _x;
