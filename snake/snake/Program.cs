@@ -18,6 +18,10 @@ namespace snake
 
             vline.Drow();
 
+            Point p = new Point( 11, 5, '*' );
+
+            Snake mySnake = new Snake( p, 4, Direction.LEFT );
+
             Console.ReadLine();
         }
 
