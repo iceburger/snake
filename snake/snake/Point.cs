@@ -19,6 +19,10 @@ namespace snake
             sym = _sym;
         }
 
+        public Point()
+        {
+        }
+
         public Point(Point p)
         {
             x = p.x;
@@ -50,6 +54,11 @@ namespace snake
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
+        }
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
         }
         public override string ToString()
         {

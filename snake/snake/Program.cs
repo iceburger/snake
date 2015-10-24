@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace snake
 {
@@ -10,17 +10,30 @@ namespace snake
     {
         static void Main(string[] args)
         {
-            hLine hline = new hLine(7, 12, 9, '*');
 
-            hline.Drow();
+            hLine upLine = new hLine( 0, 78, 0, '#' );
+            hLine downLine = new hLine(0, 78, 24, '#');
+            vLine leftLine = new vLine(0, 24, 0, '#');
+            vLine rightLine = new vLine(0, 24, 78, '#');
 
-            vLine vline = new vLine(3, 7, 4, '#');
+            upLine.Drow();
+            downLine.Drow();
+            leftLine.Drow();
+            rightLine.Drow();
 
-            vline.Drow();
+            Point p = new Point( 4, 5, '*' );
 
-            Point p = new Point( 11, 5, '*' );
+            Snake snake = new Snake( p, 4, Direction.RIGHT );
 
-            Snake mySnake = new Snake( p, 4, Direction.LEFT );
+            while (true)
+            {
+                if (Console.KeyAvailable) {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey( key.Key );
+                }
+                snake.Move();
+                Thread.Sleep(200);
+            }
 
             Console.ReadLine();
         }
